@@ -27,6 +27,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
     $(function () {
 
         $("#btn_fetch").click(function () {
+            window.AppInventor.setWebViewString( result );
                 $("#vlink").attr("href", "#");
                 $("#vlink").text("");
             var url = $("#txt_url").val();
@@ -64,6 +65,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 video[0].load();
                 $("#vlink").attr("href", first);
                 $("#vlink").text("Link");
+                window.AppInventor.setWebViewString( first );
             });
 
         });
