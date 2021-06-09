@@ -34,10 +34,11 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
             var url = $("#txt_url").val();
             var hd =  $("#chk_hd").prop("checked");
             var hdon = $("#chk_hd").val();
+            if (!hd) {hdon = null};
             var oThis = $(this);
             oThis.attr('disabled', true);
 
-            $.get('video_info.php', {url: url, if(hd){hd: hd}}, function (data) {
+            $.get('video_info.php', {url: url, hd: hd}, function (data) {
 
                 console.log(data);
 
