@@ -37,10 +37,14 @@ try {
         $best = $links->getAllCombinedFormat();
         if ($best) {
             if (!$detail){
+                $text = [];
             foreach ($best as $item) {
+                $text[] = $item->url;
+             }
             send_json([
-            'links' => [$item->url]
-        ]); }} else {
+            'links' => [$text]
+        ]);
+            } else {
                 send_json($best);
             }
         } else {
