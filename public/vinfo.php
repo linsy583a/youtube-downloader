@@ -22,11 +22,12 @@ $youtube = new \YouTube\YouTubeDownloader();
 try {
     $links = $youtube->getDownloadLinks($url);
 
-    $best = $links->getCombinedFormat();
-
+    $best = $links->getFirstCombinedFormat();
+    $wost = $links->getFirstCombinedFormat2();
     if ($best) {
         send_json([
             'links' => [$best->url]
+            'link2' => [$wost->url]
         ]);
     } else {
         send_json(['error' => 'No links found']);
