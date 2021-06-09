@@ -37,7 +37,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
             oThis.attr('disabled', true);
 
             $.get('video_info.php', {url: url, hd: hd}, function (data) {
-
+                alert(hd);
                 console.log(data);
 
                 oThis.attr('disabled', false);
@@ -67,7 +67,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").attr("href", first);
                 
                 var hdtext = 'SD';
-                if (hd=== 'on' or (hd)) { hdtext='HD';}
+                if (hd!= '') { hdtext='HD';}
                 $("#vlink").text("Link "+hdtext);
                 window.AppInventor.setWebViewString( first );
             });
