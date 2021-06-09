@@ -38,8 +38,8 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
             var oThis = $(this);
             oThis.attr('disabled', true);
 
-            $.get('video_info.php', {url: url, hd: hd}, function (data) {
-
+            $.get('video_info.php', {url: url, hd: hdon}, function (data) {
+                alert('hd='+hdon);
                 console.log(data);
 
                 oThis.attr('disabled', false);
@@ -71,7 +71,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 var hdtext = 'SD';
                 if (hd!= '') { hdtext='HD';}
                 $("#vlink").text("Link "+hdtext);
-                window.AppInventor.setWebViewString( first );
+                //window.AppInventor.setWebViewString( first );
             });
 
         });
