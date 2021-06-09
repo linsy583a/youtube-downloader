@@ -7,13 +7,12 @@
 </head>
 <body>
 
-<h1>YouTube Downloader</h1>
 <form>
     <input type="text" value="https://www.youtube.com/watch?v=vCDDYb_M2B4" placeholder="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url">
     <input type="checkbox" id="chk_hd">HD 
     <input type="button" id="btn_fetch" value="Fetch">
 </form>
-
+    <a href="#" id="vlink"></a>
 <video width="800" height="600" controls>
     <source src="" type="video/mp4"/>
     <em>Sorry, your browser doesn't support HTML5 video.</em>
@@ -26,7 +25,8 @@
     $(function () {
 
         $("#btn_fetch").click(function () {
-
+                $("#vlink").attr("href", "#");
+                $("#vlink").text("");
             var url = $("#txt_url").val();
             var hd =  $("#chk_hd").val();
             var oThis = $(this);
@@ -60,6 +60,8 @@
                 var video = $("video");
                 video.attr('src', stream_url);
                 video[0].load();
+                $("#vlink").attr("href", first);
+                $("#vlink").text("Link");
             });
 
         });
