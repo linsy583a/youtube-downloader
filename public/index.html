@@ -32,14 +32,13 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").attr("href", "#");
                 $("#vlink").text("");
             var url = $("#txt_url").val();
-            var hd =  $("#chk_hd").prop("checked");
-            var hdon = $("#chk_hd").val();
-            if (!hd) {hdon = null};
+            var hdon = null;
+            if ($("#chk_hd").prop("checked"))  {hdon = $("#chk_hd").val();}
             var oThis = $(this);
             oThis.attr('disabled', true);
 
             $.get('video_info.php', {url: url, hd: hdon}, function (data) {
-                alert('hd='+hdon);
+                //alert('hd='+hdon);
                 console.log(data);
 
                 oThis.attr('disabled', false);
