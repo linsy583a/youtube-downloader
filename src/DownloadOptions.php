@@ -70,7 +70,12 @@ class DownloadOptions
         $combined = $this->getCombinedFormats();
         return count($combined) ? $combined[0] : null;
     }
-
+    public function getFirstCombinedFormat2()
+    {
+        $combined = $this->getCombinedFormats();
+        return count($combined) ? $combined[1] : null;
+    }
+    
     protected function getLowToHighVideoFormats()
     {
         $copy = array_values($this->getVideoFormats());
