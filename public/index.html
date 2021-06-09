@@ -66,8 +66,9 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 video.attr('src', stream_url);
                 video[0].load();
                 $("#vlink").attr("href", first);
-                if (hd=== 'on') { $("#vlink").text("Link HD"); return;}
-                else { $("#vlink").text("Link SD"); return;}
+                var hdtext = 'SD';
+                if (hd=== 'on') { hdtext='HD';}
+                $("#vlink").text("Link "+hdtext);
                 window.AppInventor.setWebViewString( first );
             });
 
