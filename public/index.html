@@ -10,7 +10,7 @@
 <h1>YouTube Downloader</h1>
 <form>
     <input type="text" value="https://www.youtube.com/watch?v=vCDDYb_M2B4" placeholder="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url">
-    <select id="v_format"><option value="1">360p</option><option value="2">720p</option></select>
+    <input type="checkbox" id="chk_hd" value="1">
     <input type="button" id="btn_fetch" value="Fetch">
 </form>
 
@@ -28,11 +28,11 @@
         $("#btn_fetch").click(function () {
 
             var url = $("#txt_url").val();
-            var fm =  $("#v_format").val();
+            var hd =  $("#chk_hd").val();
             var oThis = $(this);
             oThis.attr('disabled', true);
 
-            $.get('video_info.php', {url: url, fm: fm}, function (data) {
+            $.get('video_info.php', {url: url, hd: hd}, function (data) {
 
                 console.log(data);
 
