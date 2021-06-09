@@ -26,13 +26,13 @@ try {
     $wost = $links->getFirstCombinedFormat2();
     if ($best) {
         send_json([
-            'links' => [$best->url]
+
             'link2' => [$wost->url]
         ]);
     } else {
         send_json(['error' => 'No links found']);
     }
-
+            //'links' => [$best->url]
 } catch (\YouTube\Exception\YouTubeException $e) {
 
     send_json([
