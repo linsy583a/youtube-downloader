@@ -21,7 +21,7 @@ $youtube = new \YouTube\YouTubeDownloader();
 
 try {
     $links = $youtube->getDownloadLinks($url);
-    if ($hd) {
+
     $best = (!$hd) ? $links->getFirstCombinedFormat() : $links->getFirstCombinedFormat2();
     
     if ($best) {
