@@ -5,6 +5,7 @@ require('../vendor/autoload.php');
 $url = isset($_GET['url']) ? $_GET['url'] : null;
 $hd = isset($_GET['hd']) ? $_GET['hd'] : null;
 $allFormats = isset($_GET['all']) ? $_GET['all'] : null;
+$detail = isset($_GET['detail']) ? $_GET['detail'] : null;
 function send_json($data)
 {
     header('Content-Type: application/json');
@@ -35,9 +36,13 @@ try {
     } } else {
         $best = $links->getAllCombinedFormat();
         if ($best) {
+            if (!$detail){
+            foreach ($best as $item) {
             send_json([
-            'links' => [$best->url]
-        ]);
+            'links' => [$item->url]
+        ]); }} else {
+                send_json($best);
+            }
         } else {
         send_json(['error' => 'No links found']);
     } 
