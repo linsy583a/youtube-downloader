@@ -42,7 +42,7 @@ try {
                 $text[] = $item->url;
              }
             send_json([
-            'links' => [$text]
+            'links' => $text
         ]);
             } else {
                 send_json($best);
