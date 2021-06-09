@@ -35,7 +35,9 @@ try {
     } } else {
         $best = $links->getAllCombinedFormat();
         if ($best) {
-            send_json($best);
+            send_json([
+            'links' => [$best->url]
+        ]);
         } else {
         send_json(['error' => 'No links found']);
     } 
