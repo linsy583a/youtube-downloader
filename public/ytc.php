@@ -103,8 +103,8 @@ $text = file_get_contents('list.htm');
         <?php 
             echo '<a href="http://yttpl.herokuapp.com/vinfo.php?url='.$videoLink.'">Fetch-YTTPL</a>';
             echo ' | <a href="http://alltb-tpl.herokuapp.com/info?url='.$videoLink.'">alltb-tpl.heroku</a>';
-            echo ' | <a href="https://alltb-tpl.herokuapp.com/download?url='.$videoLink.'">Fetch-Heroku2-720p</a>';
-            echo ' | <a href="https://alltb-tpl.herokuapp.com/download?format=18&url='.$videoLink.'">Fetch-Heroku2-360p</a>';  
+            echo ' | <a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?url='.$videoLink.'">Fetch-Heroku2-720p</a>';
+            echo ' | <a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url='.$videoLink.'">Fetch-Heroku2-360p</a>';  
         endif; ?> 
         </div>
 
@@ -124,6 +124,8 @@ $text = file_get_contents('list.htm');
                 <strong>Format </strong> 
                 <small> [<a href="http://yttpl.herokuapp.com/vinfo.php?url=<?php print urlencode($videoLink)?>">yttpl</a>] 
                 [<a href="https://alltb-tpl.herokuapp.com/info?url=<?php print urlencode($videoLink)?>">atbtpl</a>
+                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">sd</a>
+                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">hd</a>
                 ]</small>
             </div>
             <div class="card-body">
