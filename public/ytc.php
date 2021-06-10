@@ -126,7 +126,9 @@ $text = file_get_contents('list.htm');
                 [<a href="https://alltb-tpl.herokuapp.com/info?url=<?php print urlencode($videoLink)?>">atbtpl</a>
                     .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">sd</a>
                     .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">hd</a>
-                ]</small>
+                    .<a href="https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">g-sd</a>
+                    .<a href="https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">g-hd</a>
+                    ]</small>
             </div>
             <div class="card-body">
                 <table class="table ">
