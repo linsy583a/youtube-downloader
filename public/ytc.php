@@ -57,7 +57,7 @@ if(isset($_REQUEST['q'])) {
 
 </head>
 <?php
-$text = file_get_contents('list.txt');
+$text = file_get_contents('list.htm');
 //class="form-control" 
 ?>
 <body>
