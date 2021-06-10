@@ -15,9 +15,9 @@
 </video>
  <form action="vinfo.php">
      <input type="submit" value="get">
-    <input type="checkbox" id="chk_all" name="all" checked>      
+    <input type="checkbox" id="chk_all" name="detail">      
     <input type="text" value="https://www.youtube.com/watch?v=vCDDYb_M2B4" placeholder="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url" name="url">
-    <input type="checkbox" id="chk_hd" name="hd">HD 
+    <input type="checkbox" id="chk_hd">HD 
     <input type="button" id="btn_fetch" value="Fetch">    
 </form>
 <a href="#" id="vlink"></a>
@@ -34,12 +34,10 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").text("");
             var url = $("#txt_url").val();
             var hdon = null;
-            if ($("#chk_hd").prop("checked"))  {hdon = $("#chk_hd").val();}
             var oThis = $(this);
             oThis.attr('disabled', true);
 
-            $.get('vinfo.php', {url: url, all: "on"}, function (data) {
-                //alert('hd='+hdon);
+            $.get('vinfo.php', {url: url}, function (data) {
                 console.log(data);
 
                 oThis.attr('disabled', false);
@@ -70,7 +68,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").attr("href", first);
                 
                 var hdtext = 'SD';
-                if (hd!= '') { hdtext='HD';}
+                if ($("#chk_hd").prop("checked")) { hdtext='HD';}
                 $("#vlink").text("Link "+hdtext);
                 //window.AppInventor.setWebViewString( first );
             });
