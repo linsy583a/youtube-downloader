@@ -16,7 +16,7 @@ if(isset($_REQUEST['q'])) {
 <body>
 
 
-
+    <h3><a href="ytc.php?q=<?php echo urlencode($videoLink);?>">ytc</a></h3>
 <video width="800" height="600" controls>
     <source src="" type="video/mp4"/>
     <em>Sorry, your browser doesn't support HTML5 video.</em>
