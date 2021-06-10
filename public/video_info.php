@@ -3,7 +3,7 @@
 require('../vendor/autoload.php');
 
 $url = isset($_GET['url']) ? $_GET['url'] : null;
-
+$hd = isset($_GET['hd']) ? $_GET['hd'] : null;
 function send_json($data)
 {
     header('Content-Type: application/json');
@@ -22,8 +22,8 @@ $youtube = new \YouTube\YouTubeDownloader();
 try {
     $links = $youtube->getDownloadLinks($url);
 
-    $best = $links->getCombinedFormat();
-
+    $best = (!$hd) ? $links->getFirstCombinedFormat() : $links->getFirstCombinedFormat2();
+    
     if ($best) {
         send_json([
             'links' => [$best->url]

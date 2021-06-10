@@ -13,11 +13,10 @@
     <source src="" type="video/mp4"/>
     <em>Sorry, your browser doesn't support HTML5 video.</em>
 </video>
- <form action="vinfo.php">
+ <form action="video_info.php">
      <input type="submit" value="get">
-    {<input type="checkbox" id="chk_all" name="detail">}      
-    <input type="text" value="https://www.youtube.com/watch?v=aqz-KE-bpKQ" placeholder="https://www.youtube.com/watch?v=" size="80" id="txt_url" name="url">
-    <input type="checkbox" id="chk_hd">HD 
+    <input type="text" value="https://www.youtube.com/watch?v=vCDDYb_M2B4" placeholder="https://www.youtube.com/watch?v=aqz-KE-bpKQ" size="80" id="txt_url" name="url">
+    <input type="checkbox" id="chk_hd" name="hd">HD 
     <input type="button" id="btn_fetch" value="Fetch">    
 </form>
 <a href="#" id="vlink"></a>
@@ -34,10 +33,12 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").text("");
             var url = $("#txt_url").val();
             var hdon = null;
+            if ($("#chk_hd").prop("checked"))  {hdon = $("#chk_hd").val();}
             var oThis = $(this);
             oThis.attr('disabled', true);
 
-            $.get('vinfo.php', {url: url}, function (data) {
+            $.get('video_info.php', {url: url, hd: hdon}, function (data) {
+                //alert('hd='+hdon);
                 console.log(data);
 
                 oThis.attr('disabled', false);
@@ -52,7 +53,6 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
 
                 // first link with video
                 var first = links[0];
-                 if ($("#chk_hd").prop("checked")) {first=links[1];}
 
                 if (typeof first === 'undefined') {
                     alert('No video found!');
@@ -68,7 +68,7 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
                 $("#vlink").attr("href", first);
                 
                 var hdtext = 'SD';
-                if ($("#chk_hd").prop("checked")) { hdtext='HD';}
+                if (hd!= '') { hdtext='HD';}
                 $("#vlink").text("Link "+hdtext);
                 //window.AppInventor.setWebViewString( first );
             });
@@ -80,3 +80,4 @@ Source: <a href="https://github.com/Athlon1600/youtube-downloader">https://githu
 
 </body>
 </html>
+
