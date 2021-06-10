@@ -11,7 +11,7 @@ $text ="";
 $pin_msg ="";
 
 // configuration
-$url = 'edit.php';
+$url = 'ed.php';
 
 if (!empty($_REQUEST['file'])) {
     $file = $_REQUEST['file'];
