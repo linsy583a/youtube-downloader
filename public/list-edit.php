@@ -36,7 +36,7 @@ $text = trim(explode('</sele',$text)[0]);
 ?>
 
 <form action="" accept-charset="utf-8" method="post">
-      <input type="submit" value="update">
+      <input type="submit" value="update"><br>
 <textarea id="list" name="list" rows="20" cols="80">
 <?php echo $text ?>
   </textarea>
