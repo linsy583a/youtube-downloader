@@ -10,9 +10,9 @@ function getTrueURL($url)
     return $data["url"];
 }
 
-$videoLink = trim($_REQUEST['url']);
+$url = trim($_REQUEST['url']);
 $aiw = $_REQUEST['aiw'];
-$videoLink = "https://alltb-tpl.herokuapp.com/download?url=".$videoLink;
+$videoLink = "https://alltb-tpl.herokuapp.com/download?url=".$url;
 
 if(!empty($_REQUEST['sd'])) { $videoLink .= "&format=18"; }
 $turl = getTrueURL($videoLink);
