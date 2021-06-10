@@ -141,7 +141,7 @@ $text = file_get_contents('list.htm');
                      <td>single mode</td>   
                         
                     </tr>
-                    <?php if(!empty($_REQUEST['q'])):?>                    
+                    <?php if(!empty($_REQUEST['all'])):?>                    
                     <?php foreach ($adapativeFormats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
