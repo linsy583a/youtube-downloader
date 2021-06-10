@@ -123,8 +123,8 @@ $text = file_get_contents('list.htm');
                 <strong>Format </strong> 
                 <small> [<a href="http://yttpl.herokuapp.com/vinfo.php?url=<?php print urlencode($videoLink)?>">yttpl</a>] 
                 [<a href="https://alltb-tpl.herokuapp.com/info?url=<?php print urlencode($videoLink)?>">atbtpl</a>
-                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">sd</a>
-                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">hd</a>
+                    .<a href="stream.php?url=https%3A%2F%2Falltb-tpl.herokuapp.com%2Fdownload%3Fformat%3D18%26url%3D<?php print urlencode($videoLink)?>">sd</a>
+                    .<a href="stream.php?url=https%3A%2F%2Falltb-tpl.herokuapp.com%2Fdownload%3Fformat%3D22%26url%3D<?php print urlencode($videoLink)?>">hd</a>
                     .<a href="https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">g-sd</a>
                     .<a href="https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">g-hd</a>
                     ]</small>
