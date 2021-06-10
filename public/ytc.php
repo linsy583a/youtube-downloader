@@ -90,7 +90,7 @@ $text = file_get_contents('list.htm');
                         <span class="input-group-btn">
                         <button type="submit" class="btn btn-primary">Go!</button>
                       </span>
-                        <input type="checkbox" id="showall" name="all">All Formats
+                         <input type="checkbox" id="showall" name="all" <?php if (isset($_REQUEST['q'])) {echo "checked";} ?>>All Formats
                     </div><!-- /input-group -->
                 </div>
             </div><!-- .row -->
