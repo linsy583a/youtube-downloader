@@ -10,9 +10,9 @@ function getTrueURL($url)
     return $data["url"];
 }
 
-$videoLink = trim($_REQUEST['url']);
+$url = trim($_REQUEST['url']);
 $aiw = $_REQUEST['aiw'];
-$videoLink = "https://alltb-tpl.herokuapp.com/download?url=".$videoLink;
+$videoLink = "https://alltb-tpl.herokuapp.com/download?url=".$url;
 
 if(!empty($_REQUEST['sd'])) { $videoLink .= "&format=18"; }
 $turl = getTrueURL($videoLink);
@@ -24,7 +24,7 @@ if(!empty($url) && !empty($aiw)) {
         echo $turl;     
 }
 else {
-echo '<a href="/"></a> | ';
+echo '<a href="/">root</a> | ';
 echo '<a href="ytc.php">YTC</a>';
 }
 ?>
