@@ -136,12 +136,13 @@ $text = file_get_contents('list.htm');
                             <td><a href="downloader.php?link=<?php print urlencode($video['link'])?>&title=<?php print urlencode($title)?>&type=<?php print urlencode($video['type'])?>">Download</a> </td>                            
                         </tr>
                     <?php endforeach;?>
+                    <?php if(!empty($_REQUEST['all'])):?> 
                     <tr>
 
                      <td>single mode</td>   
                         
                     </tr>
-                    <?php if(!empty($_REQUEST['all'])):?>                    
+                                       
                     <?php foreach ($adapativeFormats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
