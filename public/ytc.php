@@ -76,6 +76,7 @@ $text = file_get_contents('list.htm');
             <button type="submit" class="btn btn-primary">select</button>
         </form>
         <form>
+
                 </div>
                 <div class="col-lg-12">
                     <div class="input-group">
@@ -92,6 +93,7 @@ $text = file_get_contents('list.htm');
                     </div><!-- /input-group -->
                 </div>
             </div><!-- .row -->
+            <input type="checkbox" id="showall" name="all">All Formats
         </form>
 
         <?php if($error) :?>
