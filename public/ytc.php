@@ -141,19 +141,18 @@ $text = file_get_contents('list.htm');
                      <td>single mode</td>   
                         
                     </tr>
-<?php
-                    if (isset($_REQUEST['all'])) {
-                        $t = '';
-                        foreach ($adapativeFormats as $video) {
-                            $t .= "\r\n<tr><td><a href=$video['link']>View</a>\r\n";
-                            $t .= "[<a href=this.php?url=".urlencode($video['link']).">src</a>\r\n";
-                            $t .= '| <a href="stream.php?url='.urlencode($video['link']).'">stream</a>]</td>'."\r\n";
-                            $t .= "<td>$video['quality']</td><td>$video['type'] only</td>\r\n";
-                            $t .= '<td><a href="downloader.php?link='.urlencode($video['link']).'&title='.urlencode($title).'&type='.urlencode($video['type']).'">Download</a> </td>'."\r\n</tr>";
-                        } 
-                        echo $t; }
-                    ?>
-
+                    <?php if(!empty($_REQUEST['q'])):?>                    
+                    <?php foreach ($adapativeFormats as $video) :?>
+                        <tr>
+                            <td><a href="<?php print $video['link']?>">View</a>
+                             [<a href="y/this.php?url=<?php print urlencode($video['link'])?>">src</a>
+                             | <a href="http://yttpl.herokuapp.com/stream.php?url=<?php print urlencode($video['link'])?>">stream</a>]</td>
+                            <td><?php print $video['quality']?></td>
+                            <td><?php print $video['type']?> only</td>
+                            <td><a href="y/downloader.php?link=<?php print urlencode($video['link'])?>&title=<?php print urlencode($title)?>&type=<?php print urlencode($video['type'])?>">Download</a> </td>  
+                        </tr>
+                    <?php endforeach;?>
+                    <?php endif;?>
                 </table>
             </div>
         </div>
