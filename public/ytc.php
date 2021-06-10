@@ -3,6 +3,7 @@ require_once "class.youtube.php";
 $yt  = new YouTubeDownloader();
 $downloadLinks ='';
 $error='';
+$aiw = (isset($_REQUEST['aiw']) ? '&aiw=1' : '');
 if(isset($_REQUEST['q'])) {
     $videoLink = trim($_REQUEST['q']);
 
@@ -16,9 +17,7 @@ if(isset($_REQUEST['q'])) {
                 $info = $result['videos']['info'];
                 $formats = $result['videos']['formats'];
                 $adapativeFormats = $result['videos']['adapativeFormats'];
-
-                
-
+             
                 $videoInfo = json_decode($info['player_response']);
 
                 $title = $videoInfo->videoDetails->title;
@@ -103,8 +102,8 @@ $text = file_get_contents('list.htm');
         <?php 
             echo '<a href="http://yttpl.herokuapp.com/vinfo.php?url='.$videoLink.'">Fetch-YTTPL</a>';
             echo ' | <a href="http://alltb-tpl.herokuapp.com/info?url='.$videoLink.'">alltb-tpl.heroku</a>';
-            echo ' | <a href="https://alltb-tpl.herokuapp.com/download?url='.$videoLink.'">Fetch-Heroku2-720p</a>';
-            echo ' | <a href="https://alltb-tpl.herokuapp.com/download?format=18&url='.$videoLink.'">Fetch-Heroku2-360p</a>';  
+            echo ' | <a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?url='.$videoLink.'">Fetch-Heroku2-720p</a>';
+            echo ' | <a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url='.$videoLink.'">Fetch-Heroku2-360p</a>';  
         endif; ?> 
         </div>
 
@@ -124,7 +123,11 @@ $text = file_get_contents('list.htm');
                 <strong>Format </strong> 
                 <small> [<a href="http://yttpl.herokuapp.com/vinfo.php?url=<?php print urlencode($videoLink)?>">yttpl</a>] 
                 [<a href="https://alltb-tpl.herokuapp.com/info?url=<?php print urlencode($videoLink)?>">atbtpl</a>
-                ]</small>
+                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">sd</a>
+                    .<a href="stream.php?url=https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">hd</a>
+                    .<a href="https://alltb-tpl.herokuapp.com/download?format=18&url=<?php print urlencode($videoLink)?>">g-sd</a>
+                    .<a href="https://alltb-tpl.herokuapp.com/download?format=22&url=<?php print urlencode($videoLink)?>">g-hd</a>
+                    ]</small>
             </div>
             <div class="card-body">
                 <table class="table ">
@@ -132,7 +135,7 @@ $text = file_get_contents('list.htm');
                     <?php foreach ($formats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
-                             [<a href="this.php?url=<?php print urlencode($video['link'])?>">src</a>
+                             [<a href="this.php?url=<?php print urlencode($video['link']).$aiw; ?>">src</a>
                              | <a href="stream.php?url=<?php print urlencode($video['link'])?>">stream</a>]</td>
                             <td><?php print $video['quality']?></td>
                             <td>Full <?php print $video['type']?></td>
@@ -149,7 +152,7 @@ $text = file_get_contents('list.htm');
                     <?php foreach ($adapativeFormats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
-                             [<a href="y/this.php?url=<?php print urlencode($video['link'])?>">src</a>
+                             [<a href="y/this.php?url=<?php print urlencode($video['link']).$aiw; ?>">src</a>
                              | <a href="http://yttpl.herokuapp.com/stream.php?url=<?php print urlencode($video['link'])?>">stream</a>]</td>
                             <td><?php print $video['quality']?></td>
                             <td><?php print $video['type']?> only</td>
