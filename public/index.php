@@ -1,3 +1,11 @@
+<?php
+if(isset($_REQUEST['q'])) {
+    $videoLink = trim($_REQUEST['q']);
+} else {
+    $videoLink = "https://www.youtube.com/watch?v=aqz-KE-bpKQ";   
+}    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +16,7 @@
 <body>
 
 
-
+    <h3><a href="ytc.php?q=<?php echo urlencode($videoLink);?>">ytc</a></h3>
 <video width="800" height="600" controls>
     <source src="" type="video/mp4"/>
     <em>Sorry, your browser doesn't support HTML5 video.</em>
@@ -16,7 +24,7 @@
  <form action="vinfo.php">
      <input type="submit" value="get">
     {<input type="checkbox" id="chk_all" name="detail">}      
-    <input type="text" value="https://www.youtube.com/watch?v=aqz-KE-bpKQ" placeholder="https://www.youtube.com/watch?v=" size="80" id="txt_url" name="url">
+    <input type="text" value="<?php echo $videoLink;?>" placeholder="https://www.youtube.com/watch?v=" size="80" id="txt_url" name="url">
     <input type="checkbox" id="chk_hd">HD 
     <input type="button" id="btn_fetch" value="Fetch">    
 </form>
