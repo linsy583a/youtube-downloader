@@ -3,6 +3,7 @@ require_once "class.youtube.php";
 $yt  = new YouTubeDownloader();
 $downloadLinks ='';
 $error='';
+$aiw = (($_REQUEST['aiw']) ? '&aiw=1' : '');
 if(isset($_REQUEST['q'])) {
     $videoLink = trim($_REQUEST['q']);
 
@@ -16,9 +17,7 @@ if(isset($_REQUEST['q'])) {
                 $info = $result['videos']['info'];
                 $formats = $result['videos']['formats'];
                 $adapativeFormats = $result['videos']['adapativeFormats'];
-
-                
-
+             
                 $videoInfo = json_decode($info['player_response']);
 
                 $title = $videoInfo->videoDetails->title;
@@ -136,7 +135,7 @@ $text = file_get_contents('list.htm');
                     <?php foreach ($formats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
-                             [<a href="this.php?url=<?php print urlencode($video['link'])?>">src</a>
+                             [<a href="this.php?url=<?php print urlencode($video['link']).$aiw; ?>">src</a>
                              | <a href="stream.php?url=<?php print urlencode($video['link'])?>">stream</a>]</td>
                             <td><?php print $video['quality']?></td>
                             <td>Full <?php print $video['type']?></td>
@@ -153,7 +152,7 @@ $text = file_get_contents('list.htm');
                     <?php foreach ($adapativeFormats as $video) :?>
                         <tr>
                             <td><a href="<?php print $video['link']?>">View</a>
-                             [<a href="y/this.php?url=<?php print urlencode($video['link'])?>">src</a>
+                             [<a href="y/this.php?url=<?php print urlencode($video['link']).$aiw; ?>">src</a>
                              | <a href="http://yttpl.herokuapp.com/stream.php?url=<?php print urlencode($video['link'])?>">stream</a>]</td>
                             <td><?php print $video['quality']?></td>
                             <td><?php print $video['type']?> only</td>
