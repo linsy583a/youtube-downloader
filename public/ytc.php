@@ -3,7 +3,7 @@ require_once "class.youtube.php";
 $yt  = new YouTubeDownloader();
 $downloadLinks ='';
 $error='';
-$aiw = (($_REQUEST['aiw']) ? '&aiw=1' : '');
+$aiw = (isset($_REQUEST['aiw']) ? '&aiw=1' : '');
 if(isset($_REQUEST['q'])) {
     $videoLink = trim($_REQUEST['q']);
 
